@@ -40,7 +40,8 @@ export const CloseIconWrapper = styled('div')(({ theme }) => ({
     alignItems: 'center',
     justifyContent: 'center',
     right: 0,
-    top: 0
+    top: 0,
+    cursor: 'pointer'
 }));
 
 export const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -49,7 +50,7 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
         // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+        paddingLeft: `calc(1em)`,
 
         transition: theme.transitions.create('width'),
 

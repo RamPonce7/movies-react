@@ -29,6 +29,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://ramponce7.com/projects/movies_react/",
   "eslintConfig": {
     "extends": [
       "react-app",

@@ -26,7 +26,7 @@ const MoviesRouter = () => {
     );
     const routes = useRoutes([
         {
-            path: '/',
+            path: '/projects/movies_react/',
             element: (
                 <ThemeProvider theme={theme}>
                     <Layout />

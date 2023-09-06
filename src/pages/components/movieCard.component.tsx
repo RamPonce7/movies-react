@@ -40,7 +40,7 @@ export const MovieCardComponent = ({ movie }: { movie: IMovie }) => {
                     }
                 }}>
                     <Typography fontWeight={400} color={'white'} pt={1}>
-                        {vote_average}
+                        {vote_average.toFixed(1)}
                     </Typography>
                     <StarIcon sx={{
                         color: yellow[500],

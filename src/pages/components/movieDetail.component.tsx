@@ -40,7 +40,8 @@ const MovieDetailComponent = () => {
                 background: `url(${environment.images}${backdrop_path})`,
                 // height: { xs: '480px', sm: '340px' },
                 backgroundSize: 'cover',
-                borderRadius: '10px'
+                borderRadius: '10px',
+                backgroundPosition: 'center'
 
             }}>
 
@@ -80,12 +81,13 @@ const MovieDetailComponent = () => {
                     </Stack>
 
 
-                    <Stack>
+                    <Stack mx={2} mb={3}>
 
                         <Stack sx={{
                             display: 'flex',
                             flexDirection: { xs: 'column', sm: 'row' },
-                            p: 2,
+                            p: { xs: 0, sm: 2 },
+                            alignItems: 'center'
                         }}>
 
                             <Stack sx={{

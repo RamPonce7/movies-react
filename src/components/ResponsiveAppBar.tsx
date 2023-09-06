@@ -1,4 +1,4 @@
-import { FormControl, FormControlLabel, FormGroup, Select, SelectChangeEvent, useTheme } from "@mui/material";
+import { FormControl, FormControlLabel, FormGroup, IconButton, Select, SelectChangeEvent, useTheme } from "@mui/material";
 import { useConfigAppContext } from "../state/configApp/configAppContext";
 import { useLangContext } from "../state/lang/langContext";
 import AppBar from '@mui/material/AppBar';
@@ -9,20 +9,41 @@ import MenuItem from '@mui/material/MenuItem';
 import { grey, red } from '@mui/material/colors';
 import { SwitchMode } from "./switchMode.component";
 import SearchIcon from '@mui/icons-material/Search';
-import BackspaceIcon from '@mui/icons-material/Backspace';
-import { CloseIconWrapper, SearchBar, SearchIconWrapper, StyledInputBase } from "./SearchBar.component";
+import { SearchBar, StyledInputBase } from "./SearchBar.component";
+import { useMoviesContext } from "../state/movies/moviesContext";
+import MovieFilterIcon from '@mui/icons-material/MovieFilter';
+import { KeyboardEvent, useState } from "react";
+import CloseIcon from '@mui/icons-material/Close';
 
 const ResponsiveAppBar = () => {
 
     const theme = useTheme()
-    const { w } = useLangContext()
-
-    const { setLang, lang: currentLang } = useLangContext()
+    const { setLang, lang: currentLang, w } = useLangContext()
     const { toggleTheme, typeTheme } = useConfigAppContext()
+    const { isSearching, startSearching, stopSearching } = useMoviesContext()
+    const [patternToSearch, setPatternToSearch] = useState('')
+
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         toggleTheme()
     };
+
+    const handleChangeSearcher = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setPatternToSearch(event.target.value)
+
+    };
+
+    const handleSearcherEnter = (event: KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+
+        if (patternToSearch.length > 0) {
+            if (event.key === "Enter") {
+                startSearching(patternToSearch)
+            }
+        }
+
+    };
+
+
 
 
 
@@ -41,17 +62,33 @@ const ResponsiveAppBar = () => {
 
 
                     <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'space-around' }}>
-                        <SearchBar>
-                            <SearchIconWrapper>
-                                <SearchIcon />
-                            </SearchIconWrapper>
+                        <SearchBar sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            pl: 1,
+
+                        }}>
+
+                            <MovieFilterIcon />
+
                             <StyledInputBase
                                 placeholder={w('search')}
+                                onChange={handleChangeSearcher}
+                                onKeyUp={handleSearcherEnter}
+                                value={patternToSearch}
 
                             />
-                            <CloseIconWrapper>
-                                <BackspaceIcon />
-                            </CloseIconWrapper>
+
+                            {isSearching ?
+                                (<IconButton onClick={() => {
+                                    stopSearching()
+                                    setPatternToSearch('')
+                                }}><CloseIcon /> </IconButton>) :
+                                (patternToSearch.length > 0 && (<IconButton onClick={() => {
+                                    startSearching(patternToSearch)
+                                }}><SearchIcon /></IconButton>))}
+
+
                         </SearchBar>
                     </Box>
 
@@ -95,7 +132,7 @@ const ResponsiveAppBar = () => {
 
                                 {langs.map((lang) => (
                                     <MenuItem value={lang} key={lang}>
-                                        <img src={`/img/${lang.toLowerCase()}.png`} width='26px' />
+                                        <img src={`/projects/movies_react/img/${lang.toLowerCase()}.png`} width='26px' />
                                     </MenuItem>
                                 ))}
 

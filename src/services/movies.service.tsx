@@ -21,3 +21,15 @@ export const getMovieDetail = (idMovie: number, language: string) => {
         }
     })
 }
+
+export const getSearchMoviesByPage = (query: string, page: number, language: string) => {
+    return axios.get<IResponseMovies>(`${environment.url}${environment.search}`, {
+        params: {
+            include_adult: false,
+            query,
+            page,
+            api_key: environment.key,
+            language
+        }
+    })
+}
