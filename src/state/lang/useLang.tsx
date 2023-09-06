@@ -2,11 +2,15 @@ import { useState } from "react"
 
 const langWords: any = {
     esp: {
-        search: 'Buscar...'
+        search: 'Buscar...',
+        noResults: 'No se encontraron películas para esta búsqueda.',
+        goBack: 'Regresar'
 
     },
     eng: {
-        search: 'Search...'
+        search: 'Search...',
+        noResults: 'No Movies Found.',
+        goBack: 'Go Back'
     }
 }
 

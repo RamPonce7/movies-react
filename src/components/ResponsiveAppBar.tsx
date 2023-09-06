@@ -12,16 +12,16 @@ import SearchIcon from '@mui/icons-material/Search';
 import { SearchBar, StyledInputBase } from "./SearchBar.component";
 import { useMoviesContext } from "../state/movies/moviesContext";
 import MovieFilterIcon from '@mui/icons-material/MovieFilter';
-import { KeyboardEvent, useState } from "react";
+import { KeyboardEvent } from "react";
 import CloseIcon from '@mui/icons-material/Close';
 
-const ResponsiveAppBar = () => {
 
+const ResponsiveAppBar = () => {
     const theme = useTheme()
     const { setLang, lang: currentLang, w } = useLangContext()
     const { toggleTheme, typeTheme } = useConfigAppContext()
-    const { isSearching, startSearching, stopSearching } = useMoviesContext()
-    const [patternToSearch, setPatternToSearch] = useState('')
+    const { isSearching, startSearching, stopSearching, patternToSearch, setPatternToSearch } = useMoviesContext()
+
 
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -83,10 +83,10 @@ const ResponsiveAppBar = () => {
                                 (<IconButton onClick={() => {
                                     stopSearching()
                                     setPatternToSearch('')
-                                }}><CloseIcon /> </IconButton>) :
+                                }}><CloseIcon sx={{ color: 'white' }} /> </IconButton>) :
                                 (patternToSearch.length > 0 && (<IconButton onClick={() => {
                                     startSearching(patternToSearch)
-                                }}><SearchIcon /></IconButton>))}
+                                }}><SearchIcon sx={{ color: 'white' }} /></IconButton>))}
 
 
                         </SearchBar>

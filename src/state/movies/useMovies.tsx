@@ -12,6 +12,7 @@ export const useMovies = () => {
     const [movies, setMovies] = useState<IMovie[]>([])
     const [page, setPage] = useState(1)
 
+
     useEffect(() => {
         setLoading(true)
         const loadInOtherLang = async () => {
@@ -86,6 +87,7 @@ export const useMovies = () => {
     const [patternSearching, setPatternSearching] = useState('')
     const [moviesSearching, setMoviesSearching] = useState<IMovie[]>([])
     const [maxPagesSearching, setMaxPagesSearching] = useState(1)
+    const [patternToSearch, setPatternToSearch] = useState('')
 
     const loadNextPageSearching = async () => {
         setPageSearching(pageSearching + 1)
@@ -158,6 +160,8 @@ export const useMovies = () => {
         stopSearching,
         moviesSearching,
         loadNextPageSearching,
-        onMaxPage: maxPagesSearching === pageSearching
+        onMaxPage: maxPagesSearching === pageSearching,
+        patternToSearch,
+        setPatternToSearch
     }
 }
