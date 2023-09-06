@@ -9,6 +9,9 @@ export const MovieCardComponent = ({ movie }: { movie: IMovie }) => {
     const { poster_path, vote_average } = movie
     const theme = useTheme()
     const { openMovieDetail } = useMoviesContext()
+
+    if (vote_average === undefined) return <></>;
+
     return (
         <Grid item xs={6} sm={4} md={3} lg={2} borderRadius='10px'
 

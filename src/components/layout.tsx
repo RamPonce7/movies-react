@@ -23,7 +23,7 @@ export const Layout = () => {
     return (
         <Suspense >
             <ResponsiveAppBar />
-            <Box p={2} sx={{ marginTop: { xs: 7, md: 8 }, flex: 1 }}>
+            <Box py={2} px={1} sx={{ marginTop: { xs: 7, md: 8 }, flex: 1 }}>
                 {isSearching && (
                     <Grow in={isSearching}>
                         <Stack>

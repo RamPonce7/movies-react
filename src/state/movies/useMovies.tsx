@@ -13,12 +13,14 @@ export const useMovies = () => {
     const [page, setPage] = useState(1)
 
     useEffect(() => {
+        setLoading(true)
         const loadInOtherLang = async () => {
             let newMovies: IMovie[] = []
             for (let index = 1; index <= page; index++) {
                 const { data } = await getMoviesByPage(index, lang === 'ENG' ? 'en-US' : 'es-MX')
                 newMovies = [...newMovies, ...data.results]
             }
+            setLoading(false)
             setMovies(newMovies)
         }
         loadInOtherLang()
@@ -104,12 +106,14 @@ export const useMovies = () => {
 
 
     useEffect(() => {
+        setLoading(true)
         const searchInOtherLang = async () => {
             let newMovies: IMovie[] = []
             for (let index = 1; index <= pageSearching; index++) {
                 const { data } = await getSearchMoviesByPage(patternSearching, index, lang === 'ENG' ? 'en-US' : 'es-MX')
                 newMovies = [...newMovies, ...data.results]
             }
+            setLoading(false)
             setMoviesSearching(newMovies)
         }
         if (isSearching) {
