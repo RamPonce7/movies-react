@@ -103,6 +103,7 @@ export const useMovies = () => {
     const stopSearching = () => {
         setPatternSearching('')
         setIsSearching(false)
+        window.scrollTo(0, 0);
     };
 
 
