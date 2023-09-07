@@ -1,13 +1,13 @@
-import Box from '@mui/material/Box';
-
-import { useMoviesContext } from '../../state/movies/moviesContext';
 import { Chip, IconButton, Modal, Paper, Stack, Typography, useTheme } from '@mui/material';
+
+import Box from '@mui/material/Box';
 import CloseIcon from '@mui/icons-material/Close';
-import { environment } from '../../environment';
 import StarIcon from '@mui/icons-material/Star';
+import { environment } from '../../environment';
+import { useMoviesContext } from '../../state/movies';
 import { yellow } from '@mui/material/colors';
 
-const MovieDetailComponent = () => {
+export const MovieDetailComponent = () => {
     const { closeMovieDetail, movieDetailOpened, movieDetail: movie, } = useMoviesContext()
     const theme = useTheme()
     if (movie === undefined) return (<></>)
@@ -163,5 +163,5 @@ const MovieDetailComponent = () => {
     );
 }
 
-export default MovieDetailComponent
+
 

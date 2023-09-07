@@ -1,6 +1,6 @@
 import { FormControl, FormControlLabel, FormGroup, IconButton, Select, SelectChangeEvent, useTheme } from "@mui/material";
-import { useConfigAppContext } from "../state/configApp/configAppContext";
-import { useLangContext } from "../state/lang/langContext";
+import { useConfigAppContext } from "../state/configApp";
+import { useLangContext } from "../state/lang";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,7 +10,7 @@ import { grey, red } from '@mui/material/colors';
 import { SwitchMode } from "./switchMode.component";
 import SearchIcon from '@mui/icons-material/Search';
 import { SearchBar, StyledInputBase } from "./SearchBar.component";
-import { useMoviesContext } from "../state/movies/moviesContext";
+import { useMoviesContext } from "../state/movies";
 import MovieFilterIcon from '@mui/icons-material/MovieFilter';
 import { KeyboardEvent } from "react";
 import CloseIcon from '@mui/icons-material/Close';
@@ -29,6 +29,7 @@ const ResponsiveAppBar = () => {
     };
 
     const handleChangeSearcher = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.value.startsWith(' ')) return
         setPatternToSearch(event.target.value)
 
     };

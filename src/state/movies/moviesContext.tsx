@@ -1,8 +1,6 @@
 import { createContext, useContext } from 'react'
+
 import { useMovies } from './useMovies'
-
-
-
 
 const MoviesContext = createContext<ReturnType<typeof useMovies>>(null!)
 

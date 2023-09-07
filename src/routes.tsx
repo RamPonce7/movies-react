@@ -5,7 +5,7 @@ import { useMemo } from "react";
 
 import { createTheme } from "@mui/material";
 import { useConfigAppContext } from "./state/configApp/configAppContext";
-import { Layout } from "./components/layout";
+import { Layout } from "./components";
 
 const MoviesRouter = () => {
     const { typeTheme } = useConfigAppContext()

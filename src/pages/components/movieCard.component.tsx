@@ -1,9 +1,10 @@
 import { Box, Grid, Stack, Typography, useTheme } from '@mui/material';
+
 import { IMovie } from '../../interfaces/movies.interface';
-import { environment } from '../../environment';
 import StarIcon from '@mui/icons-material/Star';
+import { environment } from '../../environment';
+import { useMoviesContext } from '../../state/movies';
 import { yellow } from '@mui/material/colors';
-import { useMoviesContext } from '../../state/movies/moviesContext';
 
 export const MovieCardComponent = ({ movie }: { movie: IMovie }) => {
     const { poster_path, vote_average } = movie

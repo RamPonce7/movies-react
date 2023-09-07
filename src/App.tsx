@@ -1,9 +1,8 @@
 import { BrowserRouter } from "react-router-dom";
-import { ConfigAppProvider } from "./state/configApp/configAppContext";
-import { LangProvider } from "./state/lang/langContext";
+import { ConfigAppProvider } from "./state/configApp";
+import { LangProvider } from "./state/lang";
+import { MoviesProvider } from "./state/movies";
 import MoviesRouter from "./routes";
-import { MoviesProvider } from "./state/movies/moviesContext";
-
 
 function App() {
   return (

@@ -1,8 +1,8 @@
 import { Grid } from "@mui/material"
-import { useMoviesContext } from "../state/movies/moviesContext"
-import { MovieCardComponent } from "./components/movieCard.component"
+import { MovieCardComponent } from "./components"
+import { useConfigAppContext } from "../state/configApp";
 import { useEffect } from "react";
-import { useConfigAppContext } from "../state/configApp/configAppContext";
+import { useMoviesContext } from "../state/movies"
 
 export const ListMoviesPage = () => {
     const { movies, loadNextPage } = useMoviesContext()

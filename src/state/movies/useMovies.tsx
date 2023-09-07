@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react'
-import { useLangContext } from '../lang/langContext'
-import { getMovieDetail, getMoviesByPage, getSearchMoviesByPage } from '../../services/movies.service';
 import { IMovie, IMovieDetail } from '../../interfaces/movies.interface';
+import { getMovieDetail, getMoviesByPage, getSearchMoviesByPage } from '../../services/movies.service';
+import { useEffect, useState } from 'react'
+
 import { useConfigAppContext } from '../configApp/configAppContext';
-
-
+import { useLangContext } from '../lang/langContext'
 
 export const useMovies = () => {
     const { setLoading } = useConfigAppContext()

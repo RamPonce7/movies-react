@@ -1,8 +1,6 @@
 import { createContext, useContext } from 'react'
+
 import { useConfigApp } from './useConfigApp'
-
-
-
 
 const ConfigAppContext = createContext<ReturnType<typeof useConfigApp>>(null!)
 

@@ -1,13 +1,11 @@
-
-import { Backdrop, Box, CircularProgress, Grow, useTheme, Typography, Stack } from '@mui/material';
-// import ResponsiveAppBar from './AppBar.component';
+import { Backdrop, Box, CircularProgress, Grow, Stack, useTheme } from '@mui/material';
+import { ListMoviesPage, SearchMoviesPage } from '../pages';
 import { Suspense, useEffect } from 'react';
+
+import { MovieDetailComponent } from '../pages/components';
 import ResponsiveAppBar from './ResponsiveAppBar';
-import { ListMoviesPage } from '../pages/listMovies.page';
-import { useConfigAppContext } from '../state/configApp/configAppContext';
-import MovieDetailComponent from '../pages/components/movieDetail.component';
-import { useMoviesContext } from '../state/movies/moviesContext';
-import { SearchMoviesPage } from '../pages/searchMovies.page';
+import { useConfigAppContext } from '../state/configApp';
+import { useMoviesContext } from '../state/movies';
 
 export const Layout = () => {
     const theme = useTheme()
