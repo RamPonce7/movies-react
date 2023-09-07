@@ -7,11 +7,11 @@ import { useMoviesContext } from '../../state/movies';
 import { yellow } from '@mui/material/colors';
 
 export const MovieCardComponent = ({ movie }: { movie: IMovie }) => {
-    const { poster_path, vote_average } = movie
+    const { poster_path, vote_average, backdrop_path } = movie
     const theme = useTheme()
     const { openMovieDetail } = useMoviesContext()
 
-    if (vote_average === undefined) return <></>;
+    if (vote_average === undefined || poster_path === null || backdrop_path === null) return <></>;
 
     return (
         <Grid item xs={6} sm={4} md={3} lg={2} borderRadius='10px'

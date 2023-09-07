@@ -94,6 +94,7 @@ export const useMovies = () => {
     }
 
     const startSearching = (pattern: string) => {
+        window.scrollTo(0, 0);
         setIsSearching(true)
         setPatternSearching(pattern)
         setPageSearching(1)
@@ -103,6 +104,7 @@ export const useMovies = () => {
     const stopSearching = () => {
         setPatternSearching('')
         setIsSearching(false)
+        setMoviesSearching([])
         window.scrollTo(0, 0);
     };
 

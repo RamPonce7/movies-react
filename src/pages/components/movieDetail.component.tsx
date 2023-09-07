@@ -26,6 +26,7 @@ export const MovieDetailComponent = () => {
                 transform: 'translate(-50%, -50%)',
                 width: { xs: '90vw', sm: '640px', md: '640px', lg: '640px' },
                 borderRadius: '10px',
+
                 boxShadow:
                     theme.palette.mode === 'dark'
                         ? 'inset 2px 2px 11px 0px rgb(255 255 255 / 20%), -2px 1px 20px 0px rgb(255 255 255 / 38%), 0px 1px 3px 0px rgb(255 255 255 / 12%)'
@@ -37,11 +38,13 @@ export const MovieDetailComponent = () => {
         >
 
             <Box sx={{
+                backdropFilter: 'invert(80%)',
                 background: `url(${environment.images}${backdrop_path})`,
                 // height: { xs: '480px', sm: '340px' },
                 backgroundSize: 'cover',
                 borderRadius: '10px',
-                backgroundPosition: 'center'
+                backgroundPosition: 'center',
+
 
             }}>
 
